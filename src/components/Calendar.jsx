@@ -65,11 +65,19 @@ export default function Calendar({ date }) {
 
       <div className="ui-datepicker">
          <div className="ui-datepicker-material-header">
-            <div className="ui-datepicker-material-day">{translateDay(date.dayWeek)}</div>
+            <div className="ui-datepicker-material-day">
+               {translateDay(date.dayWeek)}
+            </div>
             <div className="ui-datepicker-material-date">
-               <div className="ui-datepicker-material-day-num">{date.day}</div>
-               <div className="ui-datepicker-material-month">{translateMounth(date.mounth)}</div>
-               <div className="ui-datepicker-material-year">{date.year}</div>
+               <div className="ui-datepicker-material-day-num">
+                  {date.day}
+               </div>
+               <div className="ui-datepicker-material-month">
+                  {translateMounth(date.mounth)}
+               </div>
+               <div className="ui-datepicker-material-year">
+                  {date.year}
+               </div>
             </div>
          </div>
          <div className="ui-datepicker-header">
