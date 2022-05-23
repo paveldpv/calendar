@@ -33,7 +33,7 @@ function App() {
         dayIsMounth: dayIsMounth,
         lastDayIsMount: lastDayIsMount
       })
-    }, 100000)
+    }, 20000)
 
   }, [])
 

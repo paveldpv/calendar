@@ -8,7 +8,7 @@ export default function Calendar({ date }) {
    let indexToday = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].findIndex(item => {
       return item == date.dayWeek
    })
-
+   console.log(indexToday);
 
    let arrNumberDay = []
    arrNumberDay.length = 42
@@ -23,16 +23,16 @@ export default function Calendar({ date }) {
 
    var temp//!
    const sortDay = (arr = [], currentIndexDayWeek) => {
-
+      
       var dayArr = arr.flat()
 
       let [currentIndex] = arr.map(week => {
          return week.findIndex(day => day == date.day)
-      }).filter(item => item > 0)   // получение где сейчас в каком месте сейчас находиться число 
-
+      }).filter(item => item >= 0)   // получение где сейчас в каком месте сейчас находиться число 
+      console.log(currentIndex);
       dayArr = dayArr.concat(dayArr.splice(0, dayArr.length - 1))// перставляем последнее значение вперед
-
-      if (!(currentIndex == currentIndexDayWeek)) {
+      
+      if (!(currentIndex == currentIndexDayWeek)) {//this error
          sortDay(subArray(7, dayArr), currentIndexDayWeek)//рекурсивно перезапускаем функцию до тех пор пока идекс входящий не будет равен текущему
       }
       else {
@@ -82,7 +82,13 @@ export default function Calendar({ date }) {
          </div>
          <div className="ui-datepicker-header">
             <div className="ui-datepicker-title">
-               <span className="ui-datepicker-month">{translateDay(date.mounth)}</span>&nbsp;<span className="ui-datepicker-year">{date.year}</span>
+               <span className="ui-datepicker-month">
+                  {translateDay(date.mounth)}
+               </span>
+                  &nbsp;
+               <span className="ui-datepicker-year">
+                  {date.year}
+               </span>
             </div>
          </div>
          <table className="ui-datepicker-calendar">
